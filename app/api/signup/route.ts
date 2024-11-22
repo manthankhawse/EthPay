@@ -8,7 +8,7 @@ connectDB();
 export async function POST(request: NextRequest) {
     const reqBody = await request.json();
     try {
-        const { firstName, lastName, username, email, password, wallet, isAdmin } = reqBody;
+        const { firstName, lastName, username, email, password, isAdmin } = reqBody;
 
         // Proper user existence check using $or
         const user = await User.findOne({ $or: [{ email }, { username }] });
@@ -20,17 +20,13 @@ export async function POST(request: NextRequest) {
         // const salt = await bcryptjs.genSalt(10);
         // const hashedPassword = await bcryptjs.hash(password, salt);
 
-        let walletAddresses = [];
-        walletAddresses.push(wallet);
 
         const newUser = new User({
             username,
             email,
             firstName,
             lastName,
-            wallet,
             isAdmin,
-            walletAddresses,
             password // Change this to hashedPassword once bcryptjs is used
         });
 
@@ -42,7 +38,7 @@ export async function POST(request: NextRequest) {
             savedUser
         });
 
-    } catch (error: any) {
+    } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }

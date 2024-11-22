@@ -26,17 +26,10 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false,
-    },
-    wallet:{
-        type:String,
-        required: [true, "enter a valid wallet address"]
-    },
-    walletAddresses:{
-        type:[String],
-        default:[]
     }
 })
 
-const User = mongoose.model("users", userSchema);
+const User = mongoose.models.users || mongoose.model("users", userSchema);
+
 
 export default User;

@@ -2,10 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ShieldCheck, Zap, Brain } from "lucide-react"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="w-full mx-auto py-24 md:py-12 lg:py-12 xl:py-32 bg-gradient-to-b from-primary/5 to-background ">
+    <section className="w-full mx-auto py-24 md:py-12 lg:py-12 xl:py-32 bg-white text-black">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_400px] justify-between">
           <div className="flex flex-col justify-center space-y-4">
@@ -13,27 +14,29 @@ export function HeroSection() {
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Secure Ethereum Payments 
               </h1>
-              <p className="max-w-[600px] text-zinc-400 md:text-xl">
+              <p className="max-w-[600px] text-zinc-800 md:text-xl">
                 Experience lightning-fast transactions with our ML-powered fraud detection. Say goodbye to phishing and hello to peace of mind.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Link href="/home">
               <Button className="inline-flex items-center justify-center" >
                 Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+              </Link>
               <Button variant="ghost" className="border-2 border-gray-700 hover:border-white">Learn More</Button>
             </div>
             <div className="flex justify-between w-3/5 pt-4">
               <div className="flex items-center space-x-2">
-                <ShieldCheck className="h-6 w-6 text-zinc-50" />
+                <ShieldCheck className="h-6 w-6 text-zinc-800" />
                 <span className="font-medium">Advanced Security</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Zap className="h-6 w-6 text-zinc-50" />
+                <Zap className="h-6 w-6 text-zinc-800" />
                 <span className="font-medium">Instant Transactions</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Brain className="h-6 w-6 text-zinc-50" />
+                <Brain className="h-6 w-6 text-zinc-800" />
                 <span className="font-medium">ML Fraud Detection</span>
               </div>
             </div>

@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
         // Proper user existence check using $or
         const user = await User.findOne({ username });
 
-        if (!user || user.password!==password) {
+        if (!user || user.password!==password || !user.isAdmin) {
             return NextResponse.json({ message: "User Not Found or incorrect password" }, { status: 400 });
         }
 

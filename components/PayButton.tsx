@@ -7,8 +7,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import fetchAddressDetails from "../utils/fetchDetails"
 
-export default function PayButton() {
+export default function PayButton({address}) {
+
+  console.log(address);
+
+  const proceedToPay = async ()=>{
+    console.log(address);
+    const details = await fetchAddressDetails(address);
+    console.log(details);
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>

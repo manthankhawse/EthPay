@@ -11,20 +11,34 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
-import { ethers } from "ethers"
 
 export const description =
   "A sign up form with first name, last name, email and password inside a card. There's an option to sign up with GitHub and a link to login if you already have an account"
 
 export default function LoginForm() {
 
-  const [wallet, setWallet] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const connectWallet = async ()=>{
-    const provider = new ethers.BrowserProvider(window.ethereum);
-      const signer = await provider.getSigner();
-      const _walletAddress = await signer.getAddress();
-      setWallet(_walletAddress);
+
+  const handleSubmit = async ()=>{
+     try {
+      const res = await fetch("http://localhost:3000/api/signup", {
+        method:"POST",
+        body:JSON.stringify({
+          firstName, lastName, username, email, password, isAdmin : false
+        })
+      })
+
+      const data = await res.json();
+
+      console.log(data);
+     } catch (error) {
+        console.log(error.message);
+     }
   }
 
   return (
@@ -42,11 +56,11 @@ export default function LoginForm() {
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="first-name">First name</Label>
-              <Input id="first-name" placeholder="Max" required />
+              <Input id="first-name" placeholder="Max" value={firstName} onChange={(e)=>setFirstName(e.target.value)} required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="last-name">Last name</Label>
-              <Input id="last-name" placeholder="Robinson" required />
+              <Input id="last-name" placeholder="Robinson" value={lastName} onChange={(e)=>setLastName(e.target.value)} required />
             </div>
           </div>
           <div className="grid gap-2">
@@ -55,18 +69,26 @@ export default function LoginForm() {
               id="email"
               type="email"
               placeholder="m@example.com"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="username">Username</Label>
+            <Input
+              id="username"
+              placeholder="maxrobinson"
+              value={username}
+              onChange={(e)=>setUsername(e.target.value)}
               required
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" />
+            <Input id="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
           </div>
-          <div className="grid gap-2">
-              <Label htmlFor="wallet">Wallet Address <span className="text-[13px] text-gray-500">*This address will be visible on your profile</span></Label>
-              <button onClick={connectWallet}>{wallet===""? "Connect Your wallet" : wallet}</button>
-            </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" onClick={handleSubmit}>
             Create an account
           </Button>
         </div>

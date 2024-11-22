@@ -6,7 +6,7 @@ import { Bitcoin, Brain, Lock, LineChart, Shield, Zap, Users} from "lucide-react
 
 export function ServicesSection() {
   return (
-    <section className="w-full py-12 md:py-12 lg:py-12 bg-gradient-to-b">
+    <section className="w-full py-12 md:py-12 lg:py-12 bg-white text-black">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Our Services</h2>
@@ -15,69 +15,69 @@ export function ServicesSection() {
           </p>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12 mt-12">
-          <Card className="transition-all hover:shadow-lg bg-neutral-900 border-none">
+          <Card className="transition-all hover:shadow-lg shadow-lg">
             <CardHeader className="flex flex-col items-center space-y-1">
               <div className="rounded-full bg-primary/10 p-3">
-                <Bitcoin className="h-6 w-6 text-white" />
+                <Bitcoin className="h-6 w-6" />
               </div>
-              <CardTitle className="text-xl text-white">Ethereum Payments</CardTitle>
+              <CardTitle className="text-xl ">Ethereum Payments</CardTitle>
             </CardHeader>
-            <CardContent className="text-center text-white">
+            <CardContent className="text-center">
               Seamlessly send and receive Ethereum payments with low transaction fees and fast confirmation times.
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg bg-neutral-900 border-none">
+          <Card className="transition-all hover:shadow-lg shadow-lg">
             <CardHeader className="flex flex-col items-center space-y-1">
               <div className="rounded-full bg-primary/10 p-3">
-                <Brain className="h-6 w-6 text-white" />
+                <Brain className="h-6 w-6" />
               </div>
-              <CardTitle className="text-xl text-white">ML Fraud Detection</CardTitle>
+              <CardTitle className="text-xl">ML Fraud Detection</CardTitle>
             </CardHeader>
-            <CardContent className="text-center text-white">
+            <CardContent className="text-center">
               Advanced machine learning algorithms detect and prevent phishing attempts and fraudulent transactions in real-time.
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg bg-neutral-900 border-none">
+          <Card className="transition-all hover:shadow-lg shadow-lg">
             <CardHeader className="flex flex-col items-center space-y-1">
               <div className="rounded-full bg-primary/10 p-3">
-                <Lock className="h-6 w-6 text-white" />
+                <Lock className="h-6 w-6" />
               </div>
-              <CardTitle className="text-white text-xl">Secure Transactions</CardTitle>
+              <CardTitle className="text-xl">Secure Transactions</CardTitle>
             </CardHeader>
-            <CardContent className="text-center text-white">
+            <CardContent className="text-center">
               Multi-factor authentication and encryption ensure your transactions and data remain secure at all times.
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg border-none bg-neutral-900">
+          <Card className="transition-all hover:shadow-lg shadow-lg">
             <CardHeader className="flex flex-col items-center space-y-1">
               <div className="rounded-full bg-primary/10 p-3">
-                <LineChart className="h-6 w-6 text-white" />
+                <LineChart className="h-6 w-6" />
               </div>
-              <CardTitle className="text-xl text-white">Real-time Monitoring</CardTitle>
+              <CardTitle className="text-xl">Real-time Monitoring</CardTitle>
             </CardHeader>
-            <CardContent className="text-center text-white">
+            <CardContent className="text-center">
               Monitor your transactions and account activity in real-time with detailed analytics and reporting.
             </CardContent>
           </Card>
         </div>
         
         <div className="mt-24 space-y-12">
-          <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl text-center">Why Choose Us</h3>
+          <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl text-center">Why Choose Us?</h3>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">
-              <Shield className="h-8 w-8 text-zinc-50" />
+              <Shield className="h-8 w-8" />
               <h4 className="text-xl font-semibold">Unmatched Security</h4>
               <p className="text-center text-zinc-500 dark:text-zinc-400">Our ML-powered fraud detection sets new standards in blockchain security.</p>
             </div>
             <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">
-              <Zap className="h-8 w-8 text-zinc-50" />
+              <Zap className="h-8 w-8" />
               <h4 className="text-xl font-semibold">Lightning Fast</h4>
               <p className="text-center text-zinc-500 dark:text-zinc-400">Experience near-instantaneous transactions with our optimized network.</p>
             </div>
             <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">
-              <Users className="h-8 w-8 text-zinc-50" />
+              <Users className="h-8 w-8" />
               <h4 className="text-xl font-semibold">User-Centric Design</h4>
-              <p className="text-center text-zinc-500 dark:text-zinc-400">Intuitive interface and robust support make blockchain accessible to all.</p>
+              <p className="text-center">Intuitive interface and robust support make blockchain accessible to all.</p>
             </div>
           </div>
         </div>
